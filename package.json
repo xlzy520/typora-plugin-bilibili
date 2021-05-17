@@ -2,7 +2,7 @@
   "name": "typora-plugin-bilibili",
   "version": "1.0.0",
   "description": "Typora粘贴图片自动上传到Bilibili",
-  "main": "typora-plugin-bilibili.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,5 +12,8 @@
     "Typora-plugin，img-upload"
   ],
   "author": "xlzy520",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "form-data": "^4.0.0"
+  }
 }

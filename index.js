@@ -13,7 +13,7 @@ args.forEach((imgPath, index)=> {
   form.append('biz', 'draw');
 
   const headers = form.getHeaders();
-  headers.Cookie = 'SESSDATA=ef0ecf6e%2C1634699903%2Cf006a*41';
+  headers.Cookie = 'SESSDATA=ef0ecf6e%2C16343%2Cf006a*41';
 
   const request = http.request({
     method: 'post',

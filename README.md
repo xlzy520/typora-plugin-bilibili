@@ -15,4 +15,6 @@ $ which node
    登录哔哩哔哩→F12打开控制台→Application→Cookies→SESSDATA
 5. `npm i`或者`yarn`或者`pnpm i`
 
-### 演示
+### 演示图片
+http://i0.hdslb.com/bfs/album/34bc7b5a1bd591a1b682fec4593345e4a9e3bfe9.png
+![http://i0.hdslb.com/bfs/album/34bc7b5a1bd591a1b682fec4593345e4a9e3bfe9.png](http://i0.hdslb.com/bfs/album/34bc7b5a1bd591a1b682fec4593345e4a9e3bfe9.png)

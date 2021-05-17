@@ -27,8 +27,8 @@ $ which node
 
 ![](http://i0.hdslb.com/bfs/album/1ae61c12ffc4a0ec9e67d4c7b173280902e4216c.png)
 
-
-
+### 自定义图床
+如果想要上传到其他的图床或者接口，可以直接修改index.js里面的逻辑，代码挺简单的
 
 ### 演示图片
 http://i0.hdslb.com/bfs/album/34bc7b5a1bd591a1b682fec4593345e4a9e3bfe9.png

@@ -1,6 +1,9 @@
 # typora-plugin-bilibili
 哔哩哔哩图片上传, Typora插件，实现图片粘贴即可上传到哔哩哔哩，并替换链接
 
+### 项目地址(求颗Star呀)
+[typora-plugin-bilibili](https://github.com/xlzy520/typora-plugin-bilibili)
+
 ### 使用
 1. 获取`nodejs`的路径，Mac下使用`which node`
 ```bash

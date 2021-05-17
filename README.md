@@ -14,6 +14,18 @@ $ which node
    
    登录哔哩哔哩→F12打开控制台→Application→Cookies→SESSDATA
 5. `npm i`或者`yarn`或者`pnpm i`
+6. 配置Typora，打开Typora设置，选择图像Tab,填入
+
+```bash
+# 后面的是shell脚本的路径
+/bin/bash /Users/xxx/Documents/webstormProjects/typora-plugin-bilibili/upload.sh
+```
+
+
+![](http://i0.hdslb.com/bfs/album/1ae61c12ffc4a0ec9e67d4c7b173280902e4216c.png)
+
+
+
 
 ### 演示图片
 http://i0.hdslb.com/bfs/album/34bc7b5a1bd591a1b682fec4593345e4a9e3bfe9.png

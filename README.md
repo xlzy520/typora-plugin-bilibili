@@ -17,7 +17,7 @@ $ which node
    
    登录哔哩哔哩→F12打开控制台→Application→Cookies→SESSDATA
 5. `npm i`或者`yarn`或者`pnpm i`
-6. 配置Typora，打开Typora设置，选择图像Tab,填入
+6. 配置Typora，打开Typora设置，选择图像Tab，填入
 
 ```bash
 # 后面的是shell脚本的路径
@@ -25,7 +25,7 @@ $ which node
 ```
 
 
-![](http://i0.hdslb.com/bfs/album/1ae61c12ffc4a0ec9e67d4c7b173280902e4216c.png)
+![](https://i0.hdslb.com/bfs/album/1ae61c12ffc4a0ec9e67d4c7b173280902e4216c.png)
 
 ### 自定义图床
 如果想要上传到其他的图床或者接口，可以直接修改index.js里面的逻辑，代码挺简单的

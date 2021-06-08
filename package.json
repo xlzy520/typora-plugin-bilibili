@@ -1,10 +1,24 @@
 {
   "name": "typora-plugin-bilibili",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Typora粘贴图片自动上传到Bilibili",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pkg": "pkg . --out-path=dist/"
+  },
+  "bin": "./index.js",
+  "targets": [
+    "node14-win-x64",
+    "node14-macos-x64"
+  ],
+  "pkg": {
+    "targets": [
+      "node14-win-x64",
+      "node14-macos-x64"
+    ],
+    "assets": [
+      "./node_modules/**/*"
+    ]
   },
   "keywords": [
     "Typora",

@@ -17,7 +17,7 @@
       "node14-macos-x64"
     ],
     "assets": [
-      "./node_modules/**/*"
+      "./node_modules/form-data/*"
     ]
   },
   "keywords": [

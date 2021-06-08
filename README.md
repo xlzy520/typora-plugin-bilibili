@@ -49,8 +49,6 @@ npm i pkg -g # 全局安装pkg打包
 
    **重点：打包的时候会遇到fetch node太慢的问题，[解决办法](#解决下载node慢)**
 
-   ![image-20210608205418773](http://i0.hdslb.com/bfs/album/697f8e5458eaf631f300588aa257ace1ef8cad12.png)
-
 
 
 ### 自定义图床
@@ -76,6 +74,7 @@ http://i0.hdslb.com/bfs/album/34bc7b5a1bd591a1b682fec4593345e4a9e3bfe9.png
 2. 放到指定的文件夹即可
    - Windows：C:\Users\xxx\.pkg-cache\3.1\
    - Mac: ~\.pkg-cache\3.1\
+   ![image-20210608205418773](http://i0.hdslb.com/bfs/album/697f8e5458eaf631f300588aa257ace1ef8cad12.png)
 
 
 

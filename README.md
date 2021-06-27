@@ -25,8 +25,11 @@
    ```bash
    /Users/xxx/Documents/webstormProjects/typora-plugin-bilibili/dist/typora-plugin-bilibili-macos
    ```
-
+MacOS
 ![image-20210608201909889](http://i0.hdslb.com/bfs/album/8169b84211ff2adfc7db31b07e6a7bc3ca9d96ad.png)
+
+Windows
+![](https://i0.hdslb.com/bfs/album/3990cc67983fa55b28cf3536c40f7febaf0dfb43.png)
 
 **如果是Windows平台使用有问题，请看[这里](./shell.md), 换成shell脚本的方式解决**
 

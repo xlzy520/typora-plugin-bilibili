@@ -15,41 +15,25 @@
 [Mac](https://gitee.com/xlzy520/typora-plugin-bilibili/attach_files/729595/download/typora-plugin-bilibili-macos)
 
 
-
-### 直接使用
-
-1. 上一步根据自己的系统下载相应的软件，
-
-2. 进入Typora设置，选择图像Tab，插入图片时选择**上传图片**，然后将软件的绝对路径填入**命令**。如下地方，例如
-
-   ```bash
-   /Users/xxx/Documents/webstormProjects/typora-plugin-bilibili/dist/typora-plugin-bilibili-macos
-   ```
-
-![image-20210608201909889](http://i0.hdslb.com/bfs/album/8169b84211ff2adfc7db31b07e6a7bc3ca9d96ad.png)
-
-**如果是Windows平台使用有问题，请看[这里](./shell.md), 换成shell脚本的方式解决**
-
-
-### 本地开发
-
->你可以在这一步把哔哩哔哩换成其他的上传接口
-
-1. 第一步肯定是先把项目拉下来，`git clone`
-2. 项目内进行`npm i`或者`yarn`
-
+### 使用
+1. 获取`nodejs`的路径，Mac下使用`which node`
 ```bash
-npm i pkg -g # 全局安装pkg打包
+$ which node
+/Users/xxx/.nvm/versions/node/v14.16.0/bin/node
 ```
 
-3. 获取SESSDATA并替换`index.js`中第`16`行的`Cookie`，**我预设的Cookie是删减过的，是不能用的，需要换成你自己的**
+2. 替换`upload.sh`中的`node`路径
+3. 获取`index.js`的绝对路径，替换`upload.sh`中的`indexjsPath`路径
+4. 获取SESSDATA并替换`index.js`中第`16`行的`Cookie`，**我预设的Cookie是删减过的，是不能用的，需要换成你自己的**
 
    登录哔哩哔哩→F12打开控制台→Application→Cookies→SESSDATA
+5. `npm i`或者`yarn`或者`pnpm i`
+6. 配置Typora，打开Typora设置，选择图像Tab，填入
 
-4. 执行`npm run pkg`即可打包，之后就是拿到绝对路径去配置typora了
-
-   **重点：打包的时候会遇到fetch node太慢的问题，[解决办法](#解决下载node慢)**
-
+```bash
+# 后面的是shell脚本的路径
+/bin/bash /Users/xxx/Documents/webstormProjects/typora-plugin-bilibili/upload.sh
+```
 
 
 ### 自定义图床
@@ -69,13 +53,12 @@ http://i0.hdslb.com/bfs/album/34bc7b5a1bd591a1b682fec4593345e4a9e3bfe9.png
 ### 解决下载node慢
 
 1. 打包的时候会遇到fetch node太慢的问题，解决办法就是先把依赖下载好，
-   - [Windows node](https://gitee.com/xlzy520/typora-plugin-bilibili/attach_files/729610/download/fetched-v14.17.0-win-x64)
-   - [Mac node](https://gitee.com/xlzy520/typora-plugin-bilibili/attach_files/729611/download/fetched-v14.17.0-macos-x64)
+    - [Windows node](https://gitee.com/xlzy520/typora-plugin-bilibili/attach_files/729610/download/fetched-v14.17.0-win-x64)
+    - [Mac node](https://gitee.com/xlzy520/typora-plugin-bilibili/attach_files/729611/download/fetched-v14.17.0-macos-x64)
 
 2. 放到指定的文件夹即可
-   - Windows：C:\Users\xxx\.pkg-cache\3.1\
-   - Mac: ~\.pkg-cache\3.1\
-   ![image-20210608205418773](http://i0.hdslb.com/bfs/album/697f8e5458eaf631f300588aa257ace1ef8cad12.png)
+    - Windows：C:\Users\xxx\.pkg-cache\3.1\
+    - Mac: ~\.pkg-cache\3.1\
 
 
 

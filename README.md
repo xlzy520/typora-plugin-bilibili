@@ -32,7 +32,7 @@ MacOS
 Windows
 ![](https://i0.hdslb.com/bfs/album/3990cc67983fa55b28cf3536c40f7febaf0dfb43.png)
 
-**如果是Windows平台使用有问题，请看[这里](./shell.md), 换成shell脚本的方式解决**
+**填入下载的exe文件的完整路径**
 
 
 ### 本地开发

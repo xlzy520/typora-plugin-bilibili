@@ -26,10 +26,21 @@
    ```bash
    /Users/xxx/Documents/webstormProjects/typora-plugin-bilibili/dist/typora-plugin-bilibili-macos
    ```
-MacOS
+#### MacOS
 ![image-20210608201909889](http://i0.hdslb.com/bfs/album/8169b84211ff2adfc7db31b07e6a7bc3ca9d96ad.png)
 
-Windows
+**特别的**
+
+**Macos 平台的都是需要授权该可执行文件的**
+1. M1芯片的Mac，需要执行以下命令
+```bash
+chmod a+x ./ 文件名
+```
+2. 非M1芯片的，设置打开方式为终端打开，尝试打开时会提示无权限，然后去系统偏好设置->通用，点击允许
+![](https://i0.hdslb.com/bfs/album/1b86699505befa32f7d87d8024df0c0f2d84ecb9.png)
+![](https://i0.hdslb.com/bfs/album/b0eb89a08e4fd3e6ca8063dd71ce6fc2467e69dc.png)
+
+#### Windows
 ![](https://i0.hdslb.com/bfs/album/3990cc67983fa55b28cf3536c40f7febaf0dfb43.png)
 
 **填入下载的exe文件的完整路径**

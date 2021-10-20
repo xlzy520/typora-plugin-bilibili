@@ -28,6 +28,7 @@
   "author": "xlzy520",
   "license": "ISC",
   "dependencies": {
+    "@types/fs-extra": "^9.0.13",
     "form-data": "^4.0.0"
   }
 }

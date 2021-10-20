@@ -4,30 +4,31 @@
 ### 项目地址(求颗Star呀)
 [typora-plugin-bilibili](https://github.com/xlzy520/typora-plugin-bilibili)
 
-### RoadMap
-**做一个VScode版的**
 
 ### 下载
-
-[Windows](https://gitee.com/xlzy520/typora-plugin-bilibili/attach_files/729594/download/typora-plugin-bilibili-win.exe)
-
+[Windows](https://www.aliyundrive.com/s/7hhfJrtDZKy)
 
 
-[Mac](https://gitee.com/xlzy520/typora-plugin-bilibili/attach_files/729595/download/typora-plugin-bilibili-macos)
+[Mac](https://www.aliyundrive.com/s/P8XbTc3ai2K)
 
 
 
 ### 直接使用
 
-1. 上一步根据自己的系统下载相应的软件，
+1. 上一步根据自己的系统下载相应的软件
+2. 获取SESSDATA: 登录哔哩哔哩→F12打开控制台→Application→Cookies→SESSDATA
+   ![](https://i0.hdslb.com/bfs/album/fe1a58c25c42743d5f1e186639218ee75a133df2.png)
 
-2. 进入Typora设置，选择图像Tab，插入图片时选择**上传图片**，然后将软件的绝对路径填入**命令**。如下地方，例如
+4. 进入Typora设置，选择图像Tab，插入图片时选择**上传图片**，然后将软件的绝对路径填入**命令**。如下地方，例如
 
    ```bash
-   /Users/xxx/Documents/webstormProjects/typora-plugin-bilibili/dist/typora-plugin-bilibili-macos
+   /Users/xxx/bilibili/typora-plugin-bilibili-macos token=你的SESSDATA
    ```
-#### MacOS
-![image-20210608201909889](http://i0.hdslb.com/bfs/album/8169b84211ff2adfc7db31b07e6a7bc3ca9d96ad.png)
+   **其中很重要的后面的 `token=你的SESSDATA` ,没有这句的话，无法上传成功**
+
+
+MacOS
+![image-20210608201909889](https://i0.hdslb.com/bfs/album/0f8ad346424ccd2c035c83449e716f0bbf4971b4.png)
 
 **特别的**
 
@@ -52,16 +53,10 @@ chmod a+x ./ 文件名
 
 1. 第一步肯定是先把项目拉下来，`git clone`
 2. 项目内进行`npm i`或者`yarn`
-
-```bash
-npm i pkg -g # 全局安装pkg打包
-```
-
-3. 获取SESSDATA并替换`index.js`中第`16`行的`Cookie`，**我预设的Cookie是删减过的，是不能用的，需要换成你自己的**
-
-   登录哔哩哔哩→F12打开控制台→Application→Cookies→SESSDATA
-
-4. 执行`npm run pkg`即可打包，之后就是拿到绝对路径去配置typora了
+   ```bash
+   npm i pkg -g # 全局安装pkg打包
+   ```
+3. 执行`npm run pkg`即可打包，之后就是拿到绝对路径去配置typora了
 
    **重点：打包的时候会遇到fetch node太慢的问题，[解决办法](#解决下载node慢)**
 

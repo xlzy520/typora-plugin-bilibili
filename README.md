@@ -19,7 +19,7 @@
 2. 获取SESSDATA: 登录哔哩哔哩→F12打开控制台→Application→Cookies→SESSDATA
    ![](https://i0.hdslb.com/bfs/album/fe1a58c25c42743d5f1e186639218ee75a133df2.png)
 
-4. 进入Typora设置，选择图像Tab，插入图片时选择**上传图片**，然后将软件的绝对路径填入**命令**。如下地方，例如
+4. 进入Typora设置，选择图像Tab，插入图片时选择**上传图片**，然后将**插件的绝对路径**填入**命令**。如下地方，例如
 
    ```bash
    /Users/xxx/bilibili/typora-plugin-bilibili-macos token=你的SESSDATA

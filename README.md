@@ -46,47 +46,14 @@ chmod a+x ./ 文件名
 
 **填入下载的exe文件的完整路径**
 
-
-### 本地开发
-
->你可以在这一步把哔哩哔哩换成其他的上传接口
-
-1. 第一步肯定是先把项目拉下来，`git clone`
-2. 项目内进行`npm i`或者`yarn`
-   ```bash
-   npm i pkg -g # 全局安装pkg打包
-   ```
-3. 执行`npm run pkg`即可打包，之后就是拿到绝对路径去配置typora了
-
-   **重点：打包的时候会遇到fetch node太慢的问题，[解决办法](#解决下载node慢)**
-
-
-
-### 自定义图床
-
-如果想要上传到其他的图床或者接口，可以直接修改index.js里面的逻辑，代码挺简单的
-
-
-
 ### 演示
 
 https://user-images.githubusercontent.com/28336270/118472778-d3d77b80-b73b-11eb-951a-7efb1e5bf15f.mov
 
 http://i0.hdslb.com/bfs/album/34bc7b5a1bd591a1b682fec4593345e4a9e3bfe9.png
 
-
-
-### 解决下载node慢
-
-1. 打包的时候会遇到fetch node太慢的问题，解决办法就是先把依赖下载好，
-   - [Windows node](https://gitee.com/xlzy520/typora-plugin-bilibili/attach_files/729610/download/fetched-v14.17.0-win-x64)
-   - [Mac node](https://gitee.com/xlzy520/typora-plugin-bilibili/attach_files/729611/download/fetched-v14.17.0-macos-x64)
-
-2. 放到指定的文件夹即可
-   - Windows：C:\Users\xxx\.pkg-cache\3.1\
-   - Mac: ~\.pkg-cache\3.1\
-   ![image-20210608205418773](http://i0.hdslb.com/bfs/album/697f8e5458eaf631f300588aa257ace1ef8cad12.png)
-
+### 开发文档
+[开发文档](./dev.md)
 
 
 ### 图片参数

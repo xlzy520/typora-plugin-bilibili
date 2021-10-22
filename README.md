@@ -6,10 +6,10 @@
 
 
 ### 下载
-[Windows](https://www.aliyundrive.com/s/7hhfJrtDZKy)
+[Windows](https://jiali0126.oss-cn-shenzhen.aliyuncs.com/typora-plugin-bilibili-win.exe.zip)
 
 
-[Mac](https://www.aliyundrive.com/s/P8XbTc3ai2K)
+[Mac](https://jiali0126.oss-cn-shenzhen.aliyuncs.com/typora-plugin-bilibili-macos.zip)
 
 
 

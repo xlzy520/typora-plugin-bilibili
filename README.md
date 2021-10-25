@@ -23,7 +23,7 @@
 
    ```bash
    /Users/xxx/bilibili/typora-plugin-bilibili-macos token=你的SESSDATA # Mac
-   D:\Downloads\typora-plugin-bilibili-win.exe  token=你的SESSDATA # Windows
+   D:\Downloads\typora-plugin-bilibili-win.exe token=你的SESSDATA # Windows
    ```
    **其中很重要的后面的 `token=你的SESSDATA` ,没有这句的话，无法上传成功，如果发现上传失败，那应该就是SESSDATA过期了，需要手动更新**
 

@@ -15,14 +15,15 @@
 
 ### 直接使用
 
-1. 上一步根据自己的系统下载相应的软件
+1. 上一步根据自己的系统下载相应的软件并解压
 2. 获取SESSDATA: 登录哔哩哔哩→F12打开控制台→Application→Cookies→SESSDATA
    ![](https://i0.hdslb.com/bfs/album/fe1a58c25c42743d5f1e186639218ee75a133df2.png)
 
 4. 进入Typora设置，选择图像Tab，插入图片时选择**上传图片**，然后将**插件的绝对路径**填入**命令**。如下地方，例如
 
    ```bash
-   /Users/xxx/bilibili/typora-plugin-bilibili-macos token=你的SESSDATA
+   /Users/xxx/bilibili/typora-plugin-bilibili-macos token=你的SESSDATA # Mac
+   D:\Downloads\typora-plugin-bilibili-win.exe # Windows
    ```
    **其中很重要的后面的 `token=你的SESSDATA` ,没有这句的话，无法上传成功，如果发现上传失败，那应该就是SESSDATA过期了，需要手动更新**
 

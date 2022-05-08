@@ -6,19 +6,16 @@
 之前的
 <img width="553" alt="image" src="https://user-images.githubusercontent.com/28336270/167284741-c78e3d98-618d-43a7-b910-f96a8cc940cb.png">
 
-
+### 插件下载
+- [Windows](https://jiali0126.oss-cn-shenzhen.aliyuncs.com/typora/main.exe)
+- [Mac](https://jiali0126.oss-cn-shenzhen.aliyuncs.com/typora/main)
 
 ### 项目地址(求颗Star呀)
 [typora-plugin-bilibili](https://github.com/xlzy520/typora-plugin-bilibili)
 
-
-### 下载
-[Windows](https://jiali0126.oss-cn-shenzhen.aliyuncs.com/typora/main.exe)
-
-
-[Mac](https://jiali0126.oss-cn-shenzhen.aliyuncs.com/typora/main)
-
-
+### typora免费版下载
+- [Windows](https://typora.io/windows/dev_release.html)
+- [Mac](https://typora.io/dev_release.html)
 
 ### 直接使用
 

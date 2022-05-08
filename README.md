@@ -1,6 +1,10 @@
 # typora-plugin-bilibili
 哔哩哔哩图片上传, Typora插件，实现图片粘贴即可上传到哔哩哔哩，并替换链接
 
+## 正在用Go重写（90%），产物缩小5倍体积
+<img width="777" alt="image" src="https://user-images.githubusercontent.com/28336270/167284443-9120b23b-fd22-4766-ae0d-4c047b988e9d.png">
+
+
 ### 项目地址(求颗Star呀)
 [typora-plugin-bilibili](https://github.com/xlzy520/typora-plugin-bilibili)
 

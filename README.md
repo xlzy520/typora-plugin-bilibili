@@ -17,6 +17,10 @@
 - [Windows](https://typora.io/windows/dev_release.html)
 - [Mac](https://typora.io/dev_release.html)
 
+## 感谢
+License Certificate for JetBrains All Products Pack
+[<img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg" alt="GitHub license" style="zoom:50%;" />](https://jb.gg/OpenSourceSupport)  
+
 ### 直接使用
 
 1. 上一步根据自己的系统下载相应的软件并解压

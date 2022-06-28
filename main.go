@@ -60,7 +60,7 @@ func main() {
 			return
 		}
 		writer.Close()
-		url := "http://api.vc.bilibili.com/api/v1/drawImage/upload"
+		url := "https://api.vc.bilibili.com/api/v1/drawImage/upload"
 		// url := "http://localhost:5001/common/test"
 		client := &http.Client{}
 		req, err := http.NewRequest("POST", url, payload)

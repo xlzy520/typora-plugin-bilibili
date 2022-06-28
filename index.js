@@ -4,7 +4,7 @@
 const args = process.argv.splice(2)
 const FormData = require('form-data');
 const fs = require('fs');
-const http = require('http');
+const https = require('https');
 
 let SESSDATA = args.splice(0, 1)[0]
 if (SESSDATA.startsWith('token=')) {
@@ -23,7 +23,7 @@ args.forEach((imgPath, index)=> {
   const headers = form.getHeaders();
   headers.Cookie = `SESSDATA=${SESSDATA}`;
 
-  const request = http.request({
+  const request = https.request({
     method: 'post',
     host: 'api.vc.bilibili.com',
     path: '/api/v1/drawImage/upload',

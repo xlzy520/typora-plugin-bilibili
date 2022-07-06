@@ -1,5 +1,18 @@
 # 开发文档
 
+### Go
+#### 开发环境
+搭建`Go`的开发环境，这里不赘述。我使用`vscode`开发`Go`
+#### 打包构建
+```bash
+go build main.go # Mac用这条
+
+GOOS=windows GOARCH=amd64 go build main.go # Windows用这条
+```
+
+
+### NodeJS
+
 >你可以在这一步把哔哩哔哩换成其他的上传接口
 
 1. 第一步肯定是先把项目拉下来，`git clone`

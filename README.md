@@ -21,6 +21,9 @@
 License Certificate for JetBrains All Products Pack
 [<img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg" alt="GitHub license" style="zoom:50%;" />](https://jb.gg/OpenSourceSupport)  
 
+### 开发文档
+[开发文档](./dev.md)
+
 ### 直接使用
 
 1. 上一步根据自己的系统下载相应的软件并解压
@@ -60,9 +63,6 @@ chmod a+x ./ 文件名
 https://user-images.githubusercontent.com/28336270/118472778-d3d77b80-b73b-11eb-951a-7efb1e5bf15f.mov
 
 http://i0.hdslb.com/bfs/album/34bc7b5a1bd591a1b682fec4593345e4a9e3bfe9.png
-
-### 开发文档
-[开发文档](./dev.md)
 
 
 ### 图片参数

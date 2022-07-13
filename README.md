@@ -9,6 +9,7 @@
 ### 插件下载
 - [Windows](https://jiali0126.oss-cn-shenzhen.aliyuncs.com/typora/main.exe)
 - [Mac](https://jiali0126.oss-cn-shenzhen.aliyuncs.com/typora/main)
+- [Linux](https://jiali0126.oss-cn-shenzhen.aliyuncs.com/typora/main-linux)
 
 ### 项目地址(求颗Star呀)
 [typora-plugin-bilibili](https://github.com/xlzy520/typora-plugin-bilibili)

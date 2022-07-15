@@ -34,8 +34,10 @@ License Certificate for JetBrains All Products Pack
 4. 进入Typora设置，选择图像Tab，插入图片时选择**上传图片**，然后将**插件的绝对路径**填入**命令**。如下地方，例如
 
    ```bash
-   /Users/xxx/bilibili/typora-plugin-bilibili-macos token=你的SESSDATA # Mac
-   D:\Downloads\typora-plugin-bilibili-win.exe token=你的SESSDATA # Windows
+    # Mac、Linux
+   /Users/xxx/bilibili/typora-plugin-bilibili-macos token=你的SESSDATA
+   # Windows
+   D:\Downloads\typora-plugin-bilibili-win.exe token=你的SESSDATA
    ```
    **其中很重要的后面的 `token=你的SESSDATA` ,没有这句的话，无法上传成功，如果发现上传失败，那应该就是SESSDATA过期了，需要手动更新**
 

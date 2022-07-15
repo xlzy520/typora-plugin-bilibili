@@ -27,7 +27,7 @@ License Certificate for JetBrains All Products Pack
 
 ### 直接使用
 
-1. 上一步根据自己的系统下载相应的软件并解压
+1. 上一步根据自己的系统下载相应的包
 2. 获取SESSDATA: 登录哔哩哔哩→F12打开控制台→Application→Cookies→SESSDATA
    ![](https://i0.hdslb.com/bfs/album/fe1a58c25c42743d5f1e186639218ee75a133df2.png)
 

@@ -89,11 +89,12 @@ func main() {
 		p := Bilibili_Image_Resp{}
 		jsonErr := json.Unmarshal(body, &p)
 		if jsonErr != nil {
+		    fmt.Println("响应错误，可能是token已过期")
 			log.Fatal(jsonErr)
 		}
 		message := p.Message
 		// fmt.Println(message)
-		if message == "success" {
+		if p.Data.Image_url != "" {
 			if i == 1 {
 				fmt.Println("Upload Success:")
 			}
@@ -103,7 +104,7 @@ func main() {
 		} else if message == "请先登录" {
 			fmt.Println("token过期了，请及时更新命令行中的token")
 		} else {
-			fmt.Println(message)
+			fmt.Println("发生未知错误，请查看最新仓库，错误信息：" + message)
 		}
 	}
 }

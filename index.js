@@ -37,7 +37,7 @@ args.forEach((imgPath, index)=> {
     res.on('end',()=>{
       const result = JSON.parse(str);
       const { message: msg, data } = result;
-      if (msg === 'success') {
+      if (data?.image_url) {
         if (index === args.length) {
           console.log('Upload Success:');
         }

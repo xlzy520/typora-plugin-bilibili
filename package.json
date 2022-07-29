@@ -1,6 +1,6 @@
 {
   "name": "typora-plugin-bilibili",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Typora粘贴图片自动上传到Bilibili",
   "main": "index.js",
   "scripts": {

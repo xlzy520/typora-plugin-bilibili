@@ -15,7 +15,8 @@
 [typora-plugin-bilibili](https://github.com/xlzy520/typora-plugin-bilibili)
 
 ### typora免费版下载
-- [Windows](https://typora.io/windows/dev_release.html)
+- [Windows](https://typora.io/windows/dev_release.html)      
+- [windows x64 国内OSS镜像下载](https://jiali0126.oss-cn-shenzhen.aliyuncs.com/typora/typora-update-x64-1117.exe)
 - [Mac](https://typora.io/dev_release.html)
 
 ## 感谢

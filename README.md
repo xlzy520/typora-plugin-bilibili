@@ -7,7 +7,7 @@
 <img width="553" alt="image" src="https://user-images.githubusercontent.com/28336270/167284741-c78e3d98-618d-43a7-b910-f96a8cc940cb.png">
 
 ### 插件下载
-- [Windows](https://jiali0126.oss-cn-shenzhen.aliyuncs.com/typora/main.exe)
+- [Windows](https://jiali0126.oss-cn-shenzhen.aliyuncs.com/typora/main.exe.zip)
 - [Mac](https://jiali0126.oss-cn-shenzhen.aliyuncs.com/typora/main)
 - [Linux](https://jiali0126.oss-cn-shenzhen.aliyuncs.com/typora/main-linux)
 

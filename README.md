@@ -69,6 +69,21 @@ https://user-images.githubusercontent.com/28336270/118472778-d3d77b80-b73b-11eb-
 http://i0.hdslb.com/bfs/album/34bc7b5a1bd591a1b682fec4593345e4a9e3bfe9.png
 
 
+### 404解决方案
+#### 全站图片使用
+在html的head标签中设置如下标志，那么全站资源引用都不会携带referrer
+
+```html
+<meta name="referrer" content="no-referrer">
+```
+### 新窗口打开
+主要设置rel="noreferrer"，使用window.open打开的话是会默认携带referrer的，第一次还是会403
+
+```html
+<a rel="noreferrer" target="_blank"></a>
+```
+
+
 ### 图片参数
 
 格式：(图像原链接)@(\d+[whsepqoc]_?)*(\.(|webp|gif|png|jpg|jpeg))?$

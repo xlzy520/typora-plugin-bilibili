@@ -4,7 +4,9 @@
   "description": "Typora粘贴图片自动上传到Bilibili",
   "main": "index.js",
   "scripts": {
-    "pkg": "pkg . --out-path=dist/"
+    "pkg": "pkg . --out-path=dist/",
+    "test:node": "node index.js token=\"08b1\" csrf=\"cb37\" 1.jpg",
+    "test:go": "main-linux token=\"08b1\" csrf=\"cb37\" 1.jpg"
   },
   "bin": "./index.js",
   "targets": [

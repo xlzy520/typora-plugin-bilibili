@@ -7,7 +7,7 @@
 示例
 ```bash
 
-插件客户端路径 token="0829d25Cdd19b*b1" csrf="cb397c0fbf619237"
+插件客户端路径 token=0829d25Cdd19b*b1 csrf=cb397c0fbf619237
 ```
 
 

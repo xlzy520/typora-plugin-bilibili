@@ -4,6 +4,14 @@
 ## 重要提示
 **由于B站相簿的上传API自身出现问题，现在切换到动态的图片API，因此需要多加一个参数csrf(为Cookie里面的bili_jct)**
 
+示例
+```bash
+
+token="0829d25Cdd19b*b1" csrf="cb397c0fbf619237"
+```
+
+
+
 ### 用Go重写，产物缩小5倍体积，点击下载即可
 <img width="777" alt="image" src="https://user-images.githubusercontent.com/28336270/167284443-9120b23b-fd22-4766-ae0d-4c047b988e9d.png">
 之前的

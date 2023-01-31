@@ -33,16 +33,24 @@ func main() {
 	if strings.HasPrefix(SESSDATA, "token=") {
 		SESSDATA = strings.Replace(SESSDATA, "token=", "", 1)
 	} else {
-		fmt.Println("请在命令尾部输入一个空格，再输入token=你的SESSDATA, 例如\n ...-macos token=xx")
+		fmt.Println("请在命令尾部输入一个空格，再输入token=你的SESSDATA, 例如\n ...-macos token=xx csrf=xx ")
 		return
 	}
+	csrf := args[1]
+	if strings.HasPrefix(csrf, "csrf=") {
+    		csrf = strings.Replace(csrf, "csrf=", "", 1)
+    	} else {
+    		fmt.Println("请在命令尾部输入一个空格，再输入token=你的bili_jct, 例如\n ...-macos token=xx csrf=xx ")
+    		return
+    	}
 	// fmt.Println("SESSDATA: ", SESSDATA)
-	for i := 1; i < len(args); i++ {
+	for i := 2; i < len(args); i++ {
 		imagePath := args[i]
 		payload := &bytes.Buffer{}
 		writer := multipart.NewWriter(payload)
 		writer.WriteField("category", "daily")
-		writer.WriteField("biz", "draw")
+		writer.WriteField("biz", "new_dyn")
+		writer.WriteField("csrf", csrf)
 		file, err := os.Open(imagePath)
 		if err != nil {
 			fmt.Println("打开文件失败: ", err)
@@ -60,7 +68,7 @@ func main() {
 			return
 		}
 		writer.Close()
-		url := "https://api.vc.bilibili.com/api/v1/drawImage/upload"
+		url := "https://api.bilibili.com/x/dynamic/feed/draw/upload_bfs"
 		// url := "http://localhost:5001/common/test"
 		client := &http.Client{}
 		req, err := http.NewRequest("POST", url, payload)
@@ -82,6 +90,7 @@ func main() {
 		}
 
 		body, err := ioutil.ReadAll(res.Body)
+// 		fmt.Printf("%s", body)
 		if err != nil {
 			fmt.Println(err)
 			return

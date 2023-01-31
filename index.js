@@ -6,27 +6,35 @@ const FormData = require('form-data');
 const fs = require('fs');
 const https = require('https');
 
-let SESSDATA = args.splice(0, 1)[0]
+let [SESSDATA, csrf, ...images] = args
 if (SESSDATA.startsWith('token=')) {
   SESSDATA = SESSDATA.replace('token=', '')
 } else {
-  console.log('请在命令尾部输入一个空格，再输入token=你的SESSDATA, 例如\n ...-macos token=xx')
+  console.log('请在命令尾部输入一个空格，再输入token=你的SESSDATA, 例如\n ...-macos token=xx csrf=xx ')
   return
 }
 
-args.forEach((imgPath, index)=> {
+if (csrf.startsWith('csrf=')) {
+  csrf = csrf.replace('csrf=', '')
+} else {
+  console.log('请在命令尾部输入一个空格，再输入csrf=你的bili_jct, 例如\n ...-macos token=xx csrf=xx ')
+  return
+}
+
+images.forEach((imgPath, index)=> {
   const form = new FormData();
   form.append('file_up', fs.createReadStream(imgPath));//图片文件的key
+  form.append('biz', 'new_dyn');
   form.append('category', 'daily');
-  form.append('biz', 'draw');
+  form.append('csrf', csrf);
 
   const headers = form.getHeaders();
   headers.Cookie = `SESSDATA=${SESSDATA}`;
 
   const request = https.request({
     method: 'post',
-    host: 'api.vc.bilibili.com',
-    path: '/api/v1/drawImage/upload',
+    host: 'api.bilibili.com',
+    path: '/x/dynamic/feed/draw/upload_bfs',
     headers: headers
   },function(res){
     let str='';

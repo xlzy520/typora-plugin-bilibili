@@ -1,7 +1,10 @@
 # typora-plugin-bilibili
 哔哩哔哩图片上传, Typora插件，实现图片粘贴即可上传到哔哩哔哩，并替换链接
 
-## 用Go重写，产物缩小5倍体积，点击下载即可
+## 重要提示
+**由于B站相簿的上传API自身出现问题，现在切换到动态的图片API，因此需要多加一个参数csrf(为Cookie里面的bili_jct)**
+
+### 用Go重写，产物缩小5倍体积，点击下载即可
 <img width="777" alt="image" src="https://user-images.githubusercontent.com/28336270/167284443-9120b23b-fd22-4766-ae0d-4c047b988e9d.png">
 之前的
 <img width="553" alt="image" src="https://user-images.githubusercontent.com/28336270/167284741-c78e3d98-618d-43a7-b910-f96a8cc940cb.png">

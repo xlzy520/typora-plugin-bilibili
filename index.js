@@ -23,9 +23,9 @@ if (csrf.startsWith('csrf=')) {
 
 images.forEach((imgPath, index)=> {
   const form = new FormData();
-  form.append('file_up', fs.createReadStream(imgPath));//图片文件的key
-  form.append('biz', 'new_dyn');
-  form.append('category', 'daily');
+  form.append('binary', fs.createReadStream(imgPath));//图片文件的key
+  // form.append('biz', 'new_dyn');
+  // form.append('category', 'daily');
   form.append('csrf', csrf);
 
   const headers = form.getHeaders();
@@ -34,7 +34,7 @@ images.forEach((imgPath, index)=> {
   const request = https.request({
     method: 'post',
     host: 'api.bilibili.com',
-    path: '/x/dynamic/feed/draw/upload_bfs',
+    path: '/x/article/creative/article/upcover',
     headers: headers
   },function(res){
     let str='';
@@ -45,11 +45,11 @@ images.forEach((imgPath, index)=> {
     res.on('end',()=>{
       const result = JSON.parse(str);
       const { message: msg, data } = result;
-      if (data?.image_url) {
+      if (data?.url) {
         if (index === args.length) {
           console.log('Upload Success:');
         }
-        const url = data.image_url.replace('http', 'https')
+        const url = data.url.replace('http', 'https')
         console.log(url);
       } else if (msg === '请先登录') {
         console.log('token过期了，请及时更新命令行中的token');

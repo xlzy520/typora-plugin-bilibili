@@ -16,7 +16,7 @@ import (
 )
 
 type ImageData struct {
-	Image_url string `json:"image_url"`
+	Image_url string `json:"url"`
 }
 
 type Bilibili_Image_Resp struct {
@@ -48,8 +48,8 @@ func main() {
 		imagePath := args[i]
 		payload := &bytes.Buffer{}
 		writer := multipart.NewWriter(payload)
-		writer.WriteField("category", "daily")
-		writer.WriteField("biz", "new_dyn")
+// 		writer.WriteField("category", "daily")
+// 		writer.WriteField("biz", "new_dyn")
 		writer.WriteField("csrf", csrf)
 		file, err := os.Open(imagePath)
 		if err != nil {
@@ -57,7 +57,7 @@ func main() {
 			return
 		}
 		defer file.Close()
-		part, err := writer.CreateFormFile("file_up", filepath.Base(imagePath))
+		part, err := writer.CreateFormFile("binary", filepath.Base(imagePath))
 		if err != nil {
 			fmt.Println("创建文件失败: ", err)
 			return
@@ -68,12 +68,12 @@ func main() {
 			return
 		}
 		writer.Close()
-		url := "https://api.bilibili.com/x/dynamic/feed/draw/upload_bfs"
+		url := "https://api.bilibili.com/x/article/creative/article/upcover"
 		// url := "http://localhost:5001/common/test"
 		client := &http.Client{}
 		req, err := http.NewRequest("POST", url, payload)
 		if err != nil {
-			fmt.Println(err, "1231")
+			fmt.Println(err)
 			return
 		}
 		req.Header.Add("Cookie", "SESSDATA="+SESSDATA)

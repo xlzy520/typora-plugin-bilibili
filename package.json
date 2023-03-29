@@ -10,7 +10,7 @@
     "build:linux": "CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -trimpath -o main-linux main.go",
     "build": "npm run build:mac && npm run build:win && npm run build:linux",
     "test:node": "node index.js token=\"08b1\" csrf=\"cb37\" 1.jpg",
-    "test:go": "./test\tkg/main token=\"08b1\" csrf=\"cb37\" 1.jpg"
+    "test:go": "./main token=\"08b1\" csrf=\"cb37\" 1.jpg"
   },
   "bin": "./index.js",
   "targets": [

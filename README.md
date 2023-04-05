@@ -4,6 +4,12 @@
 ## 重要提示
 **由于B站相簿的上传API自身出现问题，现在切换到动态的图片API，因此需要多加一个参数csrf(为Cookie里面的bili_jct)**
 
+
+### 在线使用
+假如有需要使用Web版本的图床上传工具，那么可以使用这个地址，但是需要填写自己B站的SESSDATA和bili_jct，如果您有顾虑，还是建议使用客户端版
+
+[Web在线版](https://www.xiaojuzi.fun/bili-short-url/upload.html)
+
 示例
 ```bash
 

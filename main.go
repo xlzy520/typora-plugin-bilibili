@@ -103,11 +103,11 @@ func main() {
 		}
 		message := p.Message
 		// fmt.Println(message)
-		if p.Data.Image_url != "" {
+		if p.Data.location != "" {
 			if i == 1 {
 				fmt.Println("Upload Success:")
 			}
-			url := strings.Replace(p.Data.Image_url, "http", "https", 1)
+			url := strings.Replace(p.Data.location, "http", "https", 1)
 			fmt.Println(url)
 
 		} else if message == "请先登录" {

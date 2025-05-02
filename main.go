@@ -49,7 +49,7 @@ func main() {
 		payload := &bytes.Buffer{}
 		writer := multipart.NewWriter(payload)
 // 		writer.WriteField("category", "daily")
- 		writer.WriteField("biz", "article")
+ 		writer.WriteField("bucket", "openplatform")
 		writer.WriteField("csrf", csrf)
 		file, err := os.Open(imagePath)
 		if err != nil {
@@ -57,7 +57,7 @@ func main() {
 			return
 		}
 		defer file.Close()
-		part, err := writer.CreateFormFile("file_up", filepath.Base(imagePath))
+		part, err := writer.CreateFormFile("file", filepath.Base(imagePath))
 		if err != nil {
 			fmt.Println("创建文件失败: ", err)
 			return
@@ -68,7 +68,7 @@ func main() {
 			return
 		}
 		writer.Close()
-		url := "https://api.bilibili.com/x/dynamic/feed/draw/upload_bfs"
+		url := "https://api.bilibili.com/x/upload/web/image"
 		// url := "http://localhost:5001/common/test"
 		client := &http.Client{}
 		req, err := http.NewRequest("POST", url, payload)

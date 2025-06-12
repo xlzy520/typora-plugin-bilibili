@@ -6,7 +6,6 @@ import (
 	"flag"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"mime/multipart"
 	"net/http"
@@ -16,7 +15,7 @@ import (
 )
 
 type ImageData struct {
-	Image_url string `json:"image_url"`
+	Location string `json:"location"`
 }
 
 type Bilibili_Image_Resp struct {
@@ -38,18 +37,18 @@ func main() {
 	}
 	csrf := args[1]
 	if strings.HasPrefix(csrf, "csrf=") {
-    		csrf = strings.Replace(csrf, "csrf=", "", 1)
-    	} else {
-    		fmt.Println("请在命令尾部输入一个空格，再输入token=你的bili_jct, 例如\n ...-macos token=xx csrf=xx ")
-    		return
-    	}
+		csrf = strings.Replace(csrf, "csrf=", "", 1)
+	} else {
+		fmt.Println("请在命令尾部输入一个空格，再输入token=你的bili_jct, 例如\n ...-macos token=xx csrf=xx ")
+		return
+	}
 	// fmt.Println("SESSDATA: ", SESSDATA)
 	for i := 2; i < len(args); i++ {
 		imagePath := args[i]
 		payload := &bytes.Buffer{}
 		writer := multipart.NewWriter(payload)
-// 		writer.WriteField("category", "daily")
- 		writer.WriteField("bucket", "openplatform")
+		// 		writer.WriteField("category", "daily")
+		writer.WriteField("bucket", "openplatform")
 		writer.WriteField("csrf", csrf)
 		file, err := os.Open(imagePath)
 		if err != nil {
@@ -81,16 +80,12 @@ func main() {
 		res, err := client.Do(req)
 		if err != nil {
 			fmt.Printf("%s", err)
-		} else {
-			defer res.Body.Close()
-			if err != nil {
-				fmt.Printf("%s", err)
-			}
-
+			return
 		}
+		defer res.Body.Close()
 
-		body, err := ioutil.ReadAll(res.Body)
-// 		fmt.Printf("%s", body)
+		body, err := io.ReadAll(res.Body)
+		// 		fmt.Printf("%s", body)
 		if err != nil {
 			fmt.Println(err)
 			return
@@ -98,16 +93,16 @@ func main() {
 		p := Bilibili_Image_Resp{}
 		jsonErr := json.Unmarshal(body, &p)
 		if jsonErr != nil {
-		    fmt.Println("响应错误，可能是token已过期")
+			fmt.Println("响应错误，可能是token已过期")
 			log.Fatal(jsonErr)
 		}
 		message := p.Message
 		// fmt.Println(message)
-		if p.Data.location != "" {
-			if i == 1 {
+		if p.Data.Location != "" {
+			if i == 2 {
 				fmt.Println("Upload Success:")
 			}
-			url := strings.Replace(p.Data.location, "http", "https", 1)
+			url := strings.Replace(p.Data.Location, "http", "https", 1)
 			fmt.Println(url)
 
 		} else if message == "请先登录" {

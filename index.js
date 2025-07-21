@@ -1,12 +1,9 @@
-// console.log('https://i0.hdslb.com/bfs/album/d8fd43a41bd32b22addbb966036c582d1296298f.jpg');
-// console.log('https://i0.hdslb.com/bfs/album/d8fd43a41bd32b22addbb966036c582d1296298f.jpg');
-
-const args = process.argv.splice(2)
 const FormData = require('form-data');
 const fs = require('fs');
 const https = require('https');
-
+const args = process.argv.splice(2)
 let [SESSDATA, csrf, ...images] = args
+
 if (SESSDATA.startsWith('token=')) {
   SESSDATA = SESSDATA.replace('token=', '')
 } else {
@@ -23,9 +20,13 @@ if (csrf.startsWith('csrf=')) {
 
 images.forEach((imgPath, index)=> {
   const form = new FormData();
-  form.append('binary', fs.createReadStream(imgPath));//图片文件的key
-  // form.append('biz', 'new_dyn');
-  // form.append('category', 'daily');
+  const fileStream = fs.createReadStream(imgPath);
+  fileStream.on('error', (err) => {
+    console.error(`打开文件失败: ${imgPath}, ${err.message}`);
+    return;
+  });
+  form.append('file', fileStream);//图片文件的key
+  form.append('bucket', 'openplatform');
   form.append('csrf', csrf);
 
   const headers = form.getHeaders();
@@ -34,7 +35,7 @@ images.forEach((imgPath, index)=> {
   const request = https.request({
     method: 'post',
     host: 'api.bilibili.com',
-    path: '/x/article/creative/article/upcover',
+    path: '/x/upload/web/image',
     headers: headers
   },function(res){
     let str='';
@@ -45,20 +46,18 @@ images.forEach((imgPath, index)=> {
     res.on('end',()=>{
       const result = JSON.parse(str);
       const { message: msg, data } = result;
-      if (data?.url) {
-        if (index === args.length) {
+      if (data?.location) {
+        if (index === 1) {
           console.log('Upload Success:');
         }
-        const url = data.url.replace('http', 'https')
+        const url = data.location.replace('http', 'https')
         console.log(url);
       } else if (msg === '请先登录') {
         console.log('token过期了，请及时更新命令行中的token');
       } else {
-        console.log(msg)
+        console.log('发生未知错误，请查看最新仓库，错误信息：' + msg)
       }
     });
   });
   form.pipe(request);
 })
-
-

@@ -4,10 +4,10 @@
   "description": "Typora粘贴图片自动上传到Bilibili",
   "main": "index.js",
   "scripts": {
-    "pkg": "pkg . --out-path=dist/",
-    "build:mac": "go build -trimpath main.go",
-    "build:win": "GOOS=windows GOARCH=amd64 go build -trimpath main.go",
-    "build:linux": "CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -trimpath -o main-linux main.go",
+    "pkg": "pkg . --out-path=dist/ --compress Brotli",
+    "build:mac": "go build -trimpath -ldflags=\"-s -w\" main.go",
+    "build:win": "GOOS=windows GOARCH=amd64 go build -trimpath -ldflags=\"-s -w\" main.go",
+    "build:linux": "CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -trimpath -ldflags=\"-s -w\" -o main-linux main.go",
     "build": "npm run build:mac && npm run build:win && npm run build:linux",
     "test:node": "node index.js token=\"08b1\" csrf=\"cb37\" 1.jpg",
     "test:go": "./main token=\"08b1\" csrf=\"cb37\" 1.jpg"
@@ -15,12 +15,14 @@
   "bin": "./index.js",
   "targets": [
     "node14-win-x64",
-    "node14-macos-x64"
+    "node14-macos-x64",
+    "node14-linux-x64"
   ],
   "pkg": {
     "targets": [
       "node14-win-x64",
-      "node14-macos-x64"
+      "node14-macos-x64",
+      "node14-linux-x64"
     ],
     "assets": [
       "./node_modules/form-data/*"
@@ -29,7 +31,8 @@
   "keywords": [
     "Typora",
     "Bilibili",
-    "Typora-plugin，img-upload"
+    "Typora-plugin",
+    "Img-upload"
   ],
   "author": "xlzy520",
   "license": "ISC",

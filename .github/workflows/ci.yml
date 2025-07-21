@@ -7,9 +7,13 @@ on:
     branches:
       - master
       - dev
+    paths-ignore:
+      - '.github/**'
+      - 'dev.md'
+      - 'README.md'
 
 jobs:
-  build:
+  build-go:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,23 +23,44 @@ jobs:
         with:
           go-version: '1.18'
       - name: Build
-        run: |
-          go build -trimpath main.go
-          GOOS=windows GOARCH=amd64 go build -trimpath main.go
-          CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -trimpath -o main-linux main.go
-      - name: Upload Mac
+        run: sh build.sh
+      - name: Upload Mac-go
         uses: actions/upload-artifact@v4
         with:
-          name: mac
+          name: mac-go
           path: main
-      - name: Upload Win
+      - name: Upload Win-go
         uses: actions/upload-artifact@v4
         with:
-          name: win
+          name: win-go
           path: main.exe
-      - name: Upload Linux
+      - name: Upload Linux-go
         uses: actions/upload-artifact@v4
         with:
-          name: linux
+          name: linux-go
           path: main-linux
-      
+
+  build-node:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install
+        run: npm install && npm i pkg -g && npm dedupe && npm prune
+      - name: build
+        run: npm run pkg
+      - name: Upload Mac-node
+        uses: actions/upload-artifact@v4
+        with:
+          name: mac-node
+          path: ./dist/typora-plugin-bilibili-macos
+      - name: Upload Win-node
+        uses: actions/upload-artifact@v4
+        with:
+          name: win-node
+          path: ./dist/typora-plugin-bilibili-win.exe
+      - name: Upload Linux-node
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-node
+          path: ./dist/typora-plugin-bilibili-linux

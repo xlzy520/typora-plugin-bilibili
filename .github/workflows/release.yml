@@ -2,12 +2,23 @@ name: release
 
 # https://help.github.com/en/articles/workflow-syntax-for-github-actions#on
 on:
-  push:
-    tags:
-      - "*"   #监听push tag的时候执行构建
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version'
+        required: false
+        default: 'v0.0.0'
+      latest:
+        description: 'Latest'
+        required: false
+        default: 'true'
+      prerelease:
+        description: 'Prerelease'
+        required: false
+        default: 'false'
 
 jobs:
-  build:
+  build-go:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,16 +28,69 @@ jobs:
         with:
           go-version: '1.18'
       - name: Build
-        run: |
-          go build -trimpath main.go
-          GOOS=windows GOARCH=amd64 go build -trimpath main.go
-          CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -trimpath -o main-linux main.go
-      - name: Release
-        uses: softprops/action-gh-release@v2
-        if: startsWith(github.ref, 'refs/tags/')
+        run: sh build.sh
+      - name: Upload Mac-go
+        uses: actions/upload-artifact@v4
         with:
-          files: |
-            main
-            main-linux
-            main.exe
+          name: mac-go
+          path: main
+      - name: Upload Win-go
+        uses: actions/upload-artifact@v4
+        with:
+          name: win-go
+          path: main.exe
+      - name: Upload Linux-go
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-go
+          path: main-linux
+
+  build-node:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install
+        run: npm install && npm i pkg -g && npm dedupe && npm prune
+      - name: build
+        run: npm run pkg
+      - name: Upload Mac-node
+        uses: actions/upload-artifact@v4
+        with:
+          name: mac-node
+          path: ./dist/typora-plugin-bilibili-macos
+      - name: Upload Win-node
+        uses: actions/upload-artifact@v4
+        with:
+          name: win-node
+          path: ./dist/typora-plugin-bilibili-win.exe
+      - name: Upload Linux-node
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-node
+          path: ./dist/typora-plugin-bilibili-linux
+
+  Release:
+    runs-on: ubuntu-latest
+    needs: [ build-go, build-node ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+      - name: Release
+        uses: ncipollo/release-action@v1
+        with:
+          name: ${{  github.event.inputs.version }}
+          tag: ${{  github.event.inputs.version }}
+          body: ${{  github.event.inputs.version }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          makeLatest: ${{ github.event.inputs.latest }}
+          prerelease: ${{ github.event.inputs.prerelease }}
+          allowUpdates: true
+          artifacts: >
+            mac-go/main,
+            win-go/main.exe,
+            linux-go/main-linux,
+            mac-node/typora-plugin-bilibili-macos,
+            win-node/typora-plugin-bilibili-win.exe,
+            linux-node/typora-plugin-bilibili-linux
